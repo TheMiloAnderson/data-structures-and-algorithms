@@ -8,4 +8,4 @@ Write a function that takes an array as an argument. Without utilizing any of th
 I used a for loop with a range that iterates the provided array in reverse order. Each array item is then added to an output array.
 
 ## Solution
-![reverse_array whiteboard](assets/reverse_array.jpg?raw=true)
+![array_reverse whiteboard](assets/array_reverse.jpg?raw=true)
