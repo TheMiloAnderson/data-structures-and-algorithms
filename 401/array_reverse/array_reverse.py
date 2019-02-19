@@ -5,4 +5,4 @@ def reverse_array(arr):
     return output
 
 arr = [3, 6, 9, 12, 15, 18]
-print(reverse_array(arr))
+print(reverse_array(arr)) 
