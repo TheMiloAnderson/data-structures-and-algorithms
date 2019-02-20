@@ -10,4 +10,4 @@ time: O(log N)
 space: O(1)
 
 ## Solution
-![binary search whiteboard](assets/array_binary_search.pdf)
+![binary search whiteboard](assets/array_binary_search.jpg)
