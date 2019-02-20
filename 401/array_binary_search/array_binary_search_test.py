@@ -13,7 +13,7 @@ def test_binary_search_large():
     """ test with larger array """
     arr = [i * 3 for i in range(100)]
     actual = array_binary_search(arr, 21)
-    expected = 6
+    expected = 7
     assert actual == expected
 
 

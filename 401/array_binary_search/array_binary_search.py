@@ -9,7 +9,7 @@ def array_binary_search(arr, val):
     start = 0
     end = len(arr) - 1
     found = False
-    while not found and start < end:
+    while not found and start <= end:
         mid = (start + end) // 2
         if val == arr[mid]:
             found = True
