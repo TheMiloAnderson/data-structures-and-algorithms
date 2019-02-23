@@ -78,3 +78,11 @@ def test_print_empty():
     mammals = LinkedList()
 
     assert mammals.print() == ''
+
+
+def test_print_not_strings():
+    mammals = LinkedList()
+    mammals.insert(99)
+    mammals.insert(['a', 'b', 'c'])
+
+    assert mammals.print() == 'The print() method only works if all node values are strings.'

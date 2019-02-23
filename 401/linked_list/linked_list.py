@@ -32,10 +32,13 @@ class LinkedList(object):
         """ returns a concatenated string of all linked list values """
         output = ''
         current = self.head
-        while current:
-            output += current.value + '; '
-            current = current._next
-        return output
+        try:
+            while current:
+                output += current.value + '; '
+                current = current._next
+            return output
+        except TypeError:
+            return 'The print() method only works if all node values are strings.'
 
 
 class Node(object):
