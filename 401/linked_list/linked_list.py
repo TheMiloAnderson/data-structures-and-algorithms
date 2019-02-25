@@ -7,7 +7,7 @@ class LinkedList(object):
     head = None
 
     def insert(self, val):
-        """ insert a new node into linked list """
+        """ insert a new node into head of linked list """
         node = Node(val)
         if not self.head:
             self.head = node
@@ -15,6 +15,35 @@ class LinkedList(object):
             current = self.head
             self.head = node
             self.head._next = current
+
+    def append(self, val):
+        """ insert a new node at end of linked list """
+        node = Node(val)
+        if not self.head:
+            self.head = node
+        else:
+            current = self.head
+            while current._next:
+                current = current._next
+            current._next = node
+
+    def insert_before(self, val, new_val):
+        """ insert a new value before given value """
+        node = Node(new_val)
+        current = self.head
+        while current._next.value != val:
+            current = current._next
+        node._next = current._next
+        current._next = node
+
+    def insert_after(self, val, new_val):
+        """ insert a new value after given value """
+        node = Node(new_val)
+        current = self.head
+        while current.value != val:
+            current = current._next
+        node._next = current._next
+        current._next = node
 
     def includes(self, val):
         """ search for value in linked list """
