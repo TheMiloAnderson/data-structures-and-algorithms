@@ -29,27 +29,35 @@ class LinkedList(object):
 
     def insert_before(self, val, new_val):
         """ insert a new value before given value """
-        node = Node(new_val)
-        current = self.head
-        while current._next.value != val:
-            current = current._next
-        node._next = current._next
-        current._next = node
+        if self.includes(val):
+            if self.head.value == val:
+                self.insert(new_val)
+            else:
+                node = Node(new_val)
+                current = self.head
+                while current._next.value != val:
+                    current = current._next
+                node._next = current._next
+                current._next = node
 
     def insert_after(self, val, new_val):
         """ insert a new value after given value """
-        node = Node(new_val)
-        current = self.head
-        while current.value != val:
-            current = current._next
-        node._next = current._next
-        current._next = node
+        if self.includes(val):
+            if self.head.value == val:
+                self.append(new_val)
+            else:
+                node = Node(new_val)
+                current = self.head
+                while current.value != val:
+                    current = current._next
+                node._next = current._next
+                current._next = node
 
     def includes(self, val):
         """ search for value in linked list """
         if self.head:
             current = self.head
-            while current._next:
+            while current:
                 if current.value == val:
                     return True
                 current = current._next
@@ -78,3 +86,10 @@ class Node(object):
     def __init__(self, val):
         self.value = val
         self._next = None
+
+
+if __name__ == '__main__':
+    mammals = LinkedList()
+    mammals.insert('bear')
+    mammals.insert_before('bear', 'tiger')
+    print(mammals.print())

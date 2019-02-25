@@ -79,13 +79,29 @@ def test_insert_after():
     assert mammals.print() == 'whale; wolf; bat; ape; '
 
 
+def test_insert_before_head():
+    mammals = LinkedList()
+    mammals.insert('bear')
+    mammals.insert_before('bear', 'tiger')
+
+    assert mammals.print() == 'tiger; bear; '
+
+
+def test_insert_after_head():
+    mammals = LinkedList()
+    mammals.insert('bear')
+    mammals.insert_after('bear', 'tiger')
+
+    assert mammals.print() == 'bear; tiger; '
+
+
 def test_includes():
     mammals = LinkedList()
     mammals.insert('whale')
     mammals.insert('wolf')
     mammals.insert('ape')
 
-    assert mammals.includes('wolf')
+    assert mammals.includes('whale')
 
 
 def test_includes():
