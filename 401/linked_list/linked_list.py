@@ -7,7 +7,7 @@ class LinkedList(object):
     head = None
 
     def insert(self, val):
-        """ insert a new node into linked list """
+        """ insert a new node into head of linked list """
         node = Node(val)
         if not self.head:
             self.head = node
@@ -16,11 +16,48 @@ class LinkedList(object):
             self.head = node
             self.head._next = current
 
+    def append(self, val):
+        """ insert a new node at end of linked list """
+        node = Node(val)
+        if not self.head:
+            self.head = node
+        else:
+            current = self.head
+            while current._next:
+                current = current._next
+            current._next = node
+
+    def insert_before(self, val, new_val):
+        """ insert a new value before given value """
+        if self.includes(val):
+            if self.head.value == val:
+                self.insert(new_val)
+            else:
+                node = Node(new_val)
+                current = self.head
+                while current._next.value != val:
+                    current = current._next
+                node._next = current._next
+                current._next = node
+
+    def insert_after(self, val, new_val):
+        """ insert a new value after given value """
+        if self.includes(val):
+            if self.head.value == val:
+                self.append(new_val)
+            else:
+                node = Node(new_val)
+                current = self.head
+                while current.value != val:
+                    current = current._next
+                node._next = current._next
+                current._next = node
+
     def includes(self, val):
         """ search for value in linked list """
         if self.head:
             current = self.head
-            while current._next:
+            while current:
                 if current.value == val:
                     return True
                 current = current._next
@@ -49,3 +86,10 @@ class Node(object):
     def __init__(self, val):
         self.value = val
         self._next = None
+
+
+if __name__ == '__main__':
+    mammals = LinkedList()
+    mammals.insert('bear')
+    mammals.insert_before('bear', 'tiger')
+    print(mammals.print())

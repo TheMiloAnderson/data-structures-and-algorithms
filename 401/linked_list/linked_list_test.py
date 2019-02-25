@@ -41,13 +41,67 @@ def test_insert_three():
     assert mammals.head._next._next.value == 'whale'
 
 
+def test_append():
+    mammals = LinkedList()
+    mammals.insert('mouse')
+    mammals.insert('dog')
+    mammals.append('cat')
+
+    assert mammals.print() == 'dog; mouse; cat; '
+
+
+def test_append_multiple():
+    mammals = LinkedList()
+    mammals.append('mouse')
+    mammals.append('dog')
+    mammals.append('cat')
+
+    assert mammals.print() == 'mouse; dog; cat; '
+
+
+def test_insert_before():
+    mammals = LinkedList()
+    mammals.append('whale')
+    mammals.append('wolf')
+    mammals.append('ape')
+    mammals.insert_before('wolf', 'bat')
+
+    assert mammals.print() == 'whale; bat; wolf; ape; '
+
+
+def test_insert_after():
+    mammals = LinkedList()
+    mammals.append('whale')
+    mammals.append('wolf')
+    mammals.append('ape')
+    mammals.insert_after('wolf', 'bat')
+
+    assert mammals.print() == 'whale; wolf; bat; ape; '
+
+
+def test_insert_before_head():
+    mammals = LinkedList()
+    mammals.insert('bear')
+    mammals.insert_before('bear', 'tiger')
+
+    assert mammals.print() == 'tiger; bear; '
+
+
+def test_insert_after_head():
+    mammals = LinkedList()
+    mammals.insert('bear')
+    mammals.insert_after('bear', 'tiger')
+
+    assert mammals.print() == 'bear; tiger; '
+
+
 def test_includes():
     mammals = LinkedList()
     mammals.insert('whale')
     mammals.insert('wolf')
     mammals.insert('ape')
 
-    assert mammals.includes('wolf')
+    assert mammals.includes('whale')
 
 
 def test_includes():
