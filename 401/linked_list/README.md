@@ -9,5 +9,7 @@ The LinkedList class uses the Node class to manage linked list nodes. The insert
 
 The append() method adds a new node at the end of the linked list; insert_before() and insert_after() insert nodes before or after the given value. All of these methods have a Big O efficiency of Time: O(N); Space: O(1).
 
+The find_from_end method accepts an integer, and returns the value of the node is that is k nodes from the end of the list. Time and space efficiency are both O(N)
+
 ## Solution
 ![linked list whiteboard](assets/linked_list.jpg)
