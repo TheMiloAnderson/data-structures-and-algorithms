@@ -77,6 +77,19 @@ class LinkedList(object):
         except TypeError:
             return 'The print() method only works if all node values are strings.'
 
+    def find_from_end(self, k):
+        if not self.head:
+            return 'This linked list is empty'
+        vals = []
+        current = self.head
+        while current:
+            vals.append(current.value)
+            current = current._next
+        if len(vals) - 1 >= k:
+            return vals[len(vals) - 1 - k]
+        else:
+            return 'Error: There is no value {} nodes from the end of this linked list'.format(k)
+
 
 class Node(object):
     """
