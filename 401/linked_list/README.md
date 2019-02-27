@@ -11,5 +11,7 @@ The append() method adds a new node at the end of the linked list; insert_before
 
 The find_from_end method accepts an integer, and returns the value of the node is that is k nodes from the end of the list. Time and space efficiency are both O(N)
 
+The ll_zip function in ll_merge/ll_merge.py accepts two linked lists as arguments, and combines them into one with alternating nodes. The time/space is O(N) and O(1), respectively.
+
 ## Solution
 ![linked list whiteboard](assets/linked_list.jpg)
