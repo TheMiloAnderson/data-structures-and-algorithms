@@ -140,3 +140,16 @@ def test_print_not_strings():
     mammals.insert(['a', 'b', 'c'])
 
     assert mammals.print() == 'The print() method only works if all node values are strings.'
+
+
+def test_find_from_k():
+    mammals = LinkedList()
+    mammals.append('orca')
+    mammals.append('beluga')
+    mammals.append('porpoise')
+    mammals.append('otter')
+    mammals.append('seal')
+
+    assert mammals.find_from_end(2) == 'porpoise'
+    assert mammals.find_from_end(4) == 'orca'
+    assert mammals.find_from_end(5) == 'Error: There is no value 5 nodes from the end of this linked list'
