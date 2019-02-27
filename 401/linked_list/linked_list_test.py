@@ -1,4 +1,5 @@
 from linked_list import LinkedList
+from ll_merge.ll_merge import ll_zip
 """
 Unit tests for the linked_list.LinkedList class
 """
@@ -153,3 +154,60 @@ def test_find_from_k():
     assert mammals.find_from_end(2) == 'porpoise'
     assert mammals.find_from_end(4) == 'orca'
     assert mammals.find_from_end(5) == 'Error: There is no value 5 nodes from the end of this linked list'
+
+
+def test_ll_zip_equal():
+    ll_1 = LinkedList()
+    ll_1.append('A')
+    ll_1.append('B')
+    ll_1.append('C')
+    ll_1.append('D')
+
+    ll_2 = LinkedList()
+    ll_2.append('1')
+    ll_2.append('2')
+    ll_2.append('3')
+    ll_2.append('4')
+
+    head = ll_zip(ll_1, ll_2)
+    assert head.value == 'A'
+    assert ll_1.print() == 'A; 1; B; 2; C; 3; D; 4; '
+
+
+def test_ll_zip_shorter():
+    ll_1 = LinkedList()
+    ll_1.append('A')
+    ll_1.append('B')
+    ll_1.append('C')
+    ll_1.append('D')
+
+    ll_2 = LinkedList()
+    ll_2.append('1')
+    ll_2.append('2')
+    ll_2.append('3')
+    ll_2.append('4')
+    ll_2.append('5')
+    ll_2.append('6')
+
+    head = ll_zip(ll_1, ll_2)
+    assert head.value == 'A'
+    assert ll_1.print() == 'A; 1; B; 2; C; 3; D; 4; 5; 6; '
+
+
+def test_ll_zip_longer():
+    ll_1 = LinkedList()
+    ll_1.append('A')
+    ll_1.append('B')
+    ll_1.append('C')
+    ll_1.append('D')
+    ll_1.append('E')
+
+    ll_2 = LinkedList()
+    ll_2.append('1')
+    ll_2.append('2')
+    ll_2.append('3')
+    ll_2.append('4')
+
+    head = ll_zip(ll_1, ll_2)
+    assert head.value == 'A'
+    assert ll_1.print() == 'A; 1; B; 2; C; 3; D; 4; E; '
