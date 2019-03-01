@@ -12,6 +12,12 @@ class Stack(object):
             self.top = node
             self.top.next = curr
 
+    def pop(self):
+        curr = self.top
+        self.top = curr.next
+        curr.next = None
+        return curr.value
+
     def print_all(self):
         output = ''
         curr = self.top
