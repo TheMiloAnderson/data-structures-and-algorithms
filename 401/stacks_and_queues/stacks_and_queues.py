@@ -3,9 +3,15 @@ class Stack(object):
 
     top = None
 
+    def peek(self):
+        if self.top:
+            return self.top.value
+        else:
+            return None
+
     def push(self, val):
         node = Node(val)
-        if not self.top:
+        if not self.peek():
             self.top = node
         else:
             curr = self.top
@@ -13,10 +19,13 @@ class Stack(object):
             self.top.next = curr
 
     def pop(self):
-        curr = self.top
-        self.top = curr.next
-        curr.next = None
-        return curr.value
+        if self.peek():
+            curr = self.top
+            self.top = curr.next
+            curr.next = None
+            return curr.value
+        else:
+            return 'Cannot pop(), Stack is empty'
 
     def print_all(self):
         output = ''
