@@ -27,28 +27,11 @@ class Stack(object):
         else:
             return 'Cannot pop(), Stack is empty'
 
-    def print_all(self):
-        output = ''
-        curr = self.top
-        while curr:
-            output += str(curr.value) + '; '
-            curr = curr.next
-        return output
-
 
 class Queue(object):
 
     front = None
     rear = None
-
-    def _set_rear(self):
-        if self.front:
-            curr = self.front
-            while curr.next:
-                curr = curr.next
-            self.rear = curr
-        else:
-            self.rear = None
 
     def peek(self):
         if self.front:
@@ -65,13 +48,14 @@ class Queue(object):
             self.rear.next = node
             self.rear = node
 
-    def print_all(self):
-        output = ''
-        curr = self.front
-        while curr:
-            output += str(curr.value) + '; '
-            curr = curr.next
-        return output
+    def dequeue(self):
+        if self.front:
+            curr = self.front
+            self.front = curr.next
+            curr.next = None
+            return curr.value
+        else:
+            return 'Cannot dequeue(); Queue is empty'
 
 
 class Node(object):
