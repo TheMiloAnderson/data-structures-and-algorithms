@@ -1,4 +1,4 @@
-from stacks_and_queues import Stack
+from stacks_and_queues import Stack, Queue
 
 
 def test_push_one():
@@ -54,3 +54,17 @@ def test_peek():
 
     letters.push('B')
     assert letters.peek() == 'B'
+
+
+def test_enqueue_one():
+    letters = Queue()
+    letters.enqueue('A')
+    assert letters.print_all() == 'A; '
+
+
+def test_enqueue_many():
+    letters = Queue()
+    letters.enqueue('A')
+    letters.enqueue('B')
+    letters.enqueue('C')
+    assert letters.print_all() == 'A; B; C; '

@@ -30,13 +30,48 @@ class Stack(object):
     def print_all(self):
         output = ''
         curr = self.top
-        try:
-            while curr:
-                output += curr.value + '; '
+        while curr:
+            output += str(curr.value) + '; '
+            curr = curr.next
+        return output
+
+
+class Queue(object):
+
+    front = None
+    rear = None
+
+    def _set_rear(self):
+        if self.front:
+            curr = self.front
+            while curr.next:
                 curr = curr.next
-            return output
-        except TypeError:
-            return 'Cannot print; not all stack values are strings'
+            self.rear = curr
+        else:
+            self.rear = None
+
+    def peek(self):
+        if self.front:
+            return self.front.value
+        else:
+            return None
+
+    def enqueue(self, val):
+        node = Node(val)
+        if not self.rear:
+            self.rear = node
+            self.front = node
+        else:
+            self.rear.next = node
+            self.rear = node
+
+    def print_all(self):
+        output = ''
+        curr = self.front
+        while curr:
+            output += str(curr.value) + '; '
+            curr = curr.next
+        return output
 
 
 class Node(object):
