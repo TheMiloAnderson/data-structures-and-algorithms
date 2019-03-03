@@ -13,3 +13,13 @@ def ll_zip(ll_1, ll_2):
     if curr_2:
         curr_1._next = curr_2
     return output
+
+def ll_reverse(ll):
+    prev = None
+    curr = ll.head
+    while curr:
+        nxt = curr._next
+        curr._next = prev
+        prev = curr
+        curr = nxt
+    ll.head = prev
