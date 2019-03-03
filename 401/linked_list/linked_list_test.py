@@ -1,5 +1,5 @@
 from linked_list import LinkedList
-from ll_merge.ll_merge import ll_zip
+from ll_merge.ll_merge import ll_zip, ll_reverse
 """
 Unit tests for the linked_list.LinkedList class
 """
@@ -211,3 +211,14 @@ def test_ll_zip_longer():
     head = ll_zip(ll_1, ll_2)
     assert head.value == 'A'
     assert ll_1.print() == 'A; 1; B; 2; C; 3; D; 4; E; '
+
+
+def test_ll_reverse():
+    ll = LinkedList()
+    ll.append('A')
+    ll.append('B')
+    ll.append('C')
+    ll.append('D')
+    ll.append('E')
+    ll_reverse(ll)
+    assert ll.print() == 'E; D; C; B; A; '
