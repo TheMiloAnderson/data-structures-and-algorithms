@@ -25,7 +25,7 @@ class Stack(object):
             curr.next = None
             return curr.value
         else:
-            return 'Cannot pop(), Stack is empty'
+            return None
 
 
 class Queue(object):
@@ -55,7 +55,7 @@ class Queue(object):
             curr.next = None
             return curr.value
         else:
-            return 'Cannot dequeue(); Queue is empty'
+            return None
 
 
 class Node(object):
