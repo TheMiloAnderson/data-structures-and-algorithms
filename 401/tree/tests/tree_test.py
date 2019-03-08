@@ -21,6 +21,12 @@ def test_add_many():
     assert t.root.r_child.value == 'mouse'
 
 
+def test_contains(tree):
+    assert tree.contains('mouse') == True
+    assert tree.contains('cat') == True
+    assert tree.contains('tortoise') == False
+
+
 def test_inorder(tree):
     assert tree.inorder(tree.root) == ['bird', 'cat', 'dog', 'mouse']
 
