@@ -1,11 +1,25 @@
 # Trees
-<!-- Short summary or background information -->
 
 ## Challenge
-<!-- Description of the challenge -->
+Create a binary search tree
 
-## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+## API Methods & Efficiency
+add(value)
+Adds a node to the binary search tree
+time: O(log N); space: O(1)
 
-## API
-<!-- Description of each method publicly available in each of your trees -->
+contains(value)
+Return True if value exists in tree, False if it does not
+time: O(log N); space: O(1)
+
+inorder()
+Returns tree values from inorder traversal
+time: O(log N); space: O(N)
+
+postorder()
+Returns tree values from postorder traversal
+time: O(log N); space: O(N)
+
+preorder()
+Returns tree values from preorder traversal
+time: O(log N); space: O(N)

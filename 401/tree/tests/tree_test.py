@@ -22,9 +22,9 @@ def test_add_many():
 
 
 def test_contains(tree):
-    assert tree.contains('mouse') == True
-    assert tree.contains('cat') == True
-    assert tree.contains('tortoise') == False
+    assert tree.contains('mouse')
+    assert tree.contains('cat')
+    assert not tree.contains('tortoise')
 
 
 def test_inorder(tree):
