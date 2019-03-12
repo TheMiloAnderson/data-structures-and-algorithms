@@ -17,8 +17,10 @@ def test_exists(tree):
     assert tree
 
 
-def test_breadth_traverse(tree, capsys):
-    assert tree.root.value == 5
-    assert tree.root.l_child.value == 3
-    assert tree.root.r_child.value == 8
+def test_breadth_traverse(tree):
     assert tree.breadth_traverse() == [5, 3, 8, 1, 4]
+
+
+def test_empty_tree():
+    tree = BreadthFirstTree()
+    assert tree.breadth_traverse() == []
