@@ -51,7 +51,11 @@ class Queue(object):
     def dequeue(self):
         if self.front:
             curr = self.front
-            self.front = curr.next
+            if self.front == self.rear:
+                self.front = None
+                self.rear = None
+            else:
+                self.front = curr.next
             curr.next = None
             return curr.value
         else:
