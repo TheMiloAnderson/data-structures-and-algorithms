@@ -2,6 +2,7 @@ from tree.tree import BinarySearchTree
 from fizz_buzz_tree.fbt import fizz_buzz_tree
 import pytest
 
+
 @pytest.fixture()
 def tree():
     tree = BinarySearchTree()
