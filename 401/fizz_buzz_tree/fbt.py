@@ -1,4 +1,7 @@
 def fizz_buzz_tree(tree, curr=None):
+    """ Code challenge solution: Traverse a binary tree,
+    set values conditionally """
+    
     if not curr:
         curr = tree.root
 
