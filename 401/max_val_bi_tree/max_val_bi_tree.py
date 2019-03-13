@@ -7,10 +7,8 @@ class MaxValBinaryTree(BinarySearchTree):
     def max_value(self):
         """ Return max tree value """
         if self.root:
-            curr = self.root
-            return self._search_children(curr)
-        else:
-            return None
+            return self._search_children(self.root)
+        return None
 
     def _search_children(self, curr):
         """ Search tree for max value """
