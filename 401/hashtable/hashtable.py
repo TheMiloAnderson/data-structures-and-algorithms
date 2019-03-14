@@ -10,7 +10,15 @@ class Hashtable(object):
     def add(self, key, val):
         """  """
         hashkey = self.hash(key)
-        self.table[hashkey] = (key, val)
+        if not self.table[hashkey]:
+            self.table[hashkey] = (key, val)
+        elif not isinstance(self.table[hashkey], LinkedList):
+            oldval = self.table[hashkey]
+            self.table[hashkey] = LinkedList()
+            self.table[hashkey].insert(oldval)
+            self.table[hashkey].insert((key, val))
+        else:
+            self.table[hashkey].insert((key, val))
 
     def get(self, key):
         """  """
@@ -24,8 +32,8 @@ class Hashtable(object):
         """ hashes the key """
         key = str(key)
         hash = 0
-        for i in range(len(key) - 1):
-            hash += ord(key[i])
+        for i in key:
+            hash += ord(i)
         hash = hash * 599 // 1024
         return hash
 
