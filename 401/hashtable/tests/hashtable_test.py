@@ -41,3 +41,14 @@ def test_get():
     assert h.get('abc') == 'def'
     assert h.get('foo') == 'bar'
     assert h.get('oof') == 'rab'
+
+
+def test_contains():
+    h = Hashtable()
+    h.add('abc', 'def')
+    h.add('zyx', 'wvu')
+    h.add('foo', 'bar')
+    h.add('oof', 'rab')
+    assert h.contains('abc') is True
+    assert h.contains('oof') is True
+    assert h.contains('dar') is False

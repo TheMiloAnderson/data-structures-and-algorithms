@@ -2,13 +2,13 @@ from linked_list.linked_list import LinkedList
 
 
 class Hashtable(object):
-    """  """
+    """ Implements a hashtable, with methods hash, add, get, and contains """
 
     def __init__(self):
         self.table = [None] * 1024
 
     def add(self, key, val):
-        """  """
+        """ Add (key, val) to hashtable """
         hashkey = self.hash(key)
         if not self.table[hashkey]:
             self.table[hashkey] = (key, val)
@@ -22,7 +22,7 @@ class Hashtable(object):
             self.table[hashkey].insert((key, val))
 
     def get(self, key):
-        """  """
+        """ Get hashtable value corresponding to key """
         hashkey = self.hash(key)
         index = self.table[hashkey]
         if isinstance(index, LinkedList):
@@ -31,11 +31,23 @@ class Hashtable(object):
                 if curr.value[0] == key:
                     return curr.value[1]
                 curr = curr._next
-        return index[1]
+        if index:
+            return index[1]
+        return None
 
     def contains(self, key):
-        """  """
-        pass
+        """ Return True if hashtable contains key, otherwise False """
+        hashkey = self.hash(key)
+        index = self.table[hashkey]
+        if isinstance(index, LinkedList):
+            curr = index.head
+            while curr:
+                if curr.value[0] == key:
+                    return True
+                curr = curr._next
+        if index:
+            return True
+        return False
 
     def hash(self, key):
         """ hashes the key """
