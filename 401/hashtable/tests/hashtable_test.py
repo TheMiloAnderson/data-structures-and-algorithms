@@ -30,3 +30,14 @@ def test_collide():
     h.add('oof', 'rab')
     assert isinstance(h.table[h.hash('foo')], LinkedList)
     assert isinstance(h.table[h.hash('oof')], LinkedList)
+
+
+def test_get():
+    h = Hashtable()
+    h.add('abc', 'def')
+    h.add('zyx', 'wvu')
+    h.add('foo', 'bar')
+    h.add('oof', 'rab')
+    assert h.get('abc') == 'def'
+    assert h.get('foo') == 'bar'
+    assert h.get('oof') == 'rab'

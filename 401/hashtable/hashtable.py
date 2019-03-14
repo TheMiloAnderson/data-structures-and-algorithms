@@ -13,6 +13,7 @@ class Hashtable(object):
         if not self.table[hashkey]:
             self.table[hashkey] = (key, val)
         elif not isinstance(self.table[hashkey], LinkedList):
+            # todo: handle existing key overwrite
             oldval = self.table[hashkey]
             self.table[hashkey] = LinkedList()
             self.table[hashkey].insert(oldval)
@@ -22,7 +23,15 @@ class Hashtable(object):
 
     def get(self, key):
         """  """
-        pass
+        hashkey = self.hash(key)
+        index = self.table[hashkey]
+        if isinstance(index, LinkedList):
+            curr = index.head
+            while curr:
+                if curr.value[0] == key:
+                    return curr.value[1]
+                curr = curr._next
+        return index[1]
 
     def contains(self, key):
         """  """
