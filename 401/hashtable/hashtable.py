@@ -1,9 +1,16 @@
+from linked_list.linked_list import LinkedList
+
+
 class Hashtable(object):
     """  """
 
+    def __init__(self):
+        self.table = [None] * 1024
+
     def add(self, key, val):
         """  """
-        pass
+        hashkey = self.hash(key)
+        self.table[hashkey] = (key, val)
 
     def get(self, key):
         """  """
@@ -14,8 +21,13 @@ class Hashtable(object):
         pass
 
     def hash(self, key):
-        """  """
-        pass
+        """ hashes the key """
+        key = str(key)
+        hash = 0
+        for i in range(len(key) - 1):
+            hash += ord(key[i])
+        hash = hash * 599 // 1024
+        return hash
 
     def __repr__(self):
         return str(self.__class__) + str(self.__dict__)
