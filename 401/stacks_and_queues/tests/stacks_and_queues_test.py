@@ -1,4 +1,4 @@
-from stacks_and_queues import Stack, Queue
+from stacks_and_queues.stacks_and_queues import Stack, Queue
 
 
 def print_all(ll):
@@ -55,7 +55,7 @@ def test_pop_too_many():
     assert letters.pop() == 'C'
     assert letters.pop() == 'B'
     assert letters.pop() == 'A'
-    assert letters.pop() == 'Cannot pop(), Stack is empty'
+    assert letters.pop() is None
 
 
 def test_stack_peek():
@@ -95,7 +95,7 @@ def test_dequeue():
     assert letters.dequeue() == 'A'
     assert letters.dequeue() == 'B'
     assert letters.dequeue() == 'C'
-    assert letters.dequeue() == 'Cannot dequeue(); Queue is empty'
+    assert letters.dequeue() is None
 
 
 def test_queue_peek():

@@ -1,4 +1,4 @@
-from queue_with_stacks import PseudoQueue
+from queue_with_stacks.queue_with_stacks import PseudoQueue
 
 
 def test_enqueue_and_dequeue_one():
@@ -30,4 +30,4 @@ def test_enqueue_and_dequeue_all():
     assert p.dequeue() == 'C'
     assert p.dequeue() == 'D'
     assert p.dequeue() == 'E'
-    assert p.dequeue() == 'Cannot pop(), Stack is empty'
+    assert p.dequeue() is None

@@ -1,5 +1,5 @@
-from linked_list import LinkedList
-from ll_merge.ll_merge import ll_zip, ll_reverse
+from linked_list.linked_list import LinkedList
+from linked_list.ll_merge.ll_merge import ll_zip, ll_reverse
 """
 Unit tests for the linked_list.LinkedList class
 """
@@ -140,7 +140,7 @@ def test_print_not_strings():
     mammals.insert(99)
     mammals.insert(['a', 'b', 'c'])
 
-    assert mammals.print() == 'The print() method only works if all node values are strings.'
+    assert mammals.print() == 'All values must be strings.'
 
 
 def test_find_from_k():
@@ -153,7 +153,7 @@ def test_find_from_k():
 
     assert mammals.find_from_end(2) == 'porpoise'
     assert mammals.find_from_end(4) == 'orca'
-    assert mammals.find_from_end(5) == 'Error: There is no value 5 nodes from the end of this linked list'
+    assert mammals.find_from_end(5) is None
 
 
 def test_ll_zip_equal():

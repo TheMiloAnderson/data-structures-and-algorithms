@@ -75,7 +75,7 @@ class LinkedList(object):
                 current = current._next
             return output
         except TypeError:
-            return 'The print() method only works if all node values are strings.'
+            return 'All values must be strings.'
 
     def find_from_end(self, k):
         if not self.head:
@@ -88,7 +88,7 @@ class LinkedList(object):
         if len(vals) - 1 >= k:
             return vals[len(vals) - 1 - k]
         else:
-            return 'Error: There is no value {} nodes from the end of this linked list'.format(k)
+            return None
 
 
 class Node(object):
