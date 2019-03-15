@@ -1,5 +1,5 @@
-from linked_list import LinkedList
-from ll_merge.ll_merge import ll_zip, ll_reverse
+from linked_list.linked_list import LinkedList
+from linked_list.ll_merge.ll_merge import ll_zip, ll_reverse
 """
 Unit tests for the linked_list.LinkedList class
 """
