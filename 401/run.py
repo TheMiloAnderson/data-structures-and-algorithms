@@ -1,5 +1,3 @@
-from breadth_first_traverse.breadth_first_traverse import BreadthFirstTree
+from repeated_word.repeated_word import first_repeated_word
 
-p = BreadthFirstTree()
-
-print(repr(p))
+print(first_repeated_word('str'))
