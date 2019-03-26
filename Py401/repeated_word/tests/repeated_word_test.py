@@ -3,7 +3,7 @@ import pytest
 
 
 def test_repeated_word():
-    string = 'It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn’t know what I was doing in New York'
+    string = 'It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn\'t know what I was doing in New York'
     assert first_repeated_word(string) == 'summer'
 
 

@@ -1,5 +1,5 @@
-from hashtable.hashtable import Hashtable
-from linked_list.linked_list import LinkedList
+from ..hashtable import Hashtable
+from ...linked_list.linked_list import LinkedList
 import pytest
 
 
