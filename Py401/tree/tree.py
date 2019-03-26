@@ -1,5 +1,3 @@
-
-
 class BinaryTree(object):
     """ Implements a binary tree with traversal methods """
 
@@ -9,31 +7,34 @@ class BinaryTree(object):
     def inorder(self, node):
         """ Return binary tree values in left/node/right order """
         output = []
-        if node.l_child:
-            output += self.inorder(node.l_child)
-        output.append(node.value)
-        if node.r_child:
-            output += self.inorder(node.r_child)
+        if node:
+            if node.l_child:
+                output += self.inorder(node.l_child)
+            output.append(node.value)
+            if node.r_child:
+                output += self.inorder(node.r_child)
         return output
 
     def postorder(self, node):
         """ Return binary tree values in left/right/node order """
         output = []
-        if node.l_child:
-            output += self.postorder(node.l_child)
-        if node.r_child:
-            output += self.postorder(node.r_child)
-        output.append(node.value)
+        if node:
+            if node.l_child:
+                output += self.postorder(node.l_child)
+            if node.r_child:
+                output += self.postorder(node.r_child)
+            output.append(node.value)
         return output
 
     def preorder(self, node):
         """ Return binary tree values in node/left/right order """
         output = []
-        output.append(node.value)
-        if node.l_child:
-            output += self.preorder(node.l_child)
-        if node.r_child:
-            output += self.preorder(node.r_child)
+        if node:
+            output.append(node.value)
+            if node.l_child:
+                output += self.preorder(node.l_child)
+            if node.r_child:
+                output += self.preorder(node.r_child)
         return output
 
 
