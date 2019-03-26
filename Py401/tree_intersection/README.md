@@ -1,8 +1,8 @@
 # Find common values in two binary trees
 
 ## Challenge
-[x] - Write a function that takes two binary tree parameters.
-[x] - Without utilizing any of the built-in library methods available to your language, return a set of values found in both trees.
+- [x] Write a function that takes two binary tree parameters.
+- [x] Without utilizing any of the built-in library methods available to your language, return a set of values found in both trees.
 
 ## Approach & Efficiency
 The Python "set" datatype would've worked great for this - make a set for the values of each tree, then check the intersection(). Alas, we're discouraged from using built in methods, and encouraged to use our hashtable implementation. 
