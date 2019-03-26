@@ -1,7 +1,7 @@
 # Find first repeated word in string
 
 ## Challenge
-Write a function that accepts a lengthy string parameter. Without utilizing any of the built-in library methods available to your language, return the first word to occur more than once in that provided string.
+[x] - Write a function that accepts a lengthy string parameter. Without utilizing any of the built-in library methods available to your language, return the first word to occur more than once in that provided string.
 
 ## Approach & Efficiency
 We wanted to use a hashtable, becuase this makes additions and lookups more efficient. A python dictionary or set would have fulfilled this function nicely; however the assignment asks that we not use any built-in language constructs, so we used the hashtable classes we wrote previously. 

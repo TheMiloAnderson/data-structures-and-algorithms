@@ -1,4 +1,4 @@
-from ..linked_list.linked_list import LinkedList
+from linked_list.linked_list import LinkedList
 
 
 class Hashtable(object):
@@ -45,7 +45,7 @@ class Hashtable(object):
                 if curr.value[0] == key:
                     return True
                 curr = curr._next
-        if index:
+        if index and index[0] == key:
             return True
         return False
 
