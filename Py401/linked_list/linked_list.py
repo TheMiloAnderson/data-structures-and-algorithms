@@ -14,7 +14,7 @@ class LinkedList(object):
         else:
             current = self.head
             self.head = node
-            self.head._next = current
+            self.head.next = current
 
     def append(self, val):
         """ insert a new node at end of linked list """
@@ -23,9 +23,9 @@ class LinkedList(object):
             self.head = node
         else:
             current = self.head
-            while current._next:
-                current = current._next
-            current._next = node
+            while current.next:
+                current = current.next
+            current.next = node
 
     def insert_before(self, val, new_val):
         """ insert a new value before given value """
@@ -35,10 +35,10 @@ class LinkedList(object):
             else:
                 node = Node(new_val)
                 current = self.head
-                while current._next.value != val:
-                    current = current._next
-                node._next = current._next
-                current._next = node
+                while current.next.value != val:
+                    current = current.next
+                node.next = current.next
+                current.next = node
 
     def insert_after(self, val, new_val):
         """ insert a new value after given value """
@@ -49,9 +49,9 @@ class LinkedList(object):
                 node = Node(new_val)
                 current = self.head
                 while current.value != val:
-                    current = current._next
-                node._next = current._next
-                current._next = node
+                    current = current.next
+                node.next = current.next
+                current.next = node
 
     def includes(self, val):
         """ search for value in linked list """
@@ -60,7 +60,7 @@ class LinkedList(object):
             while current:
                 if current.value == val:
                     return True
-                current = current._next
+                current = current.next
             return False
         else:
             return False
@@ -72,7 +72,7 @@ class LinkedList(object):
         try:
             while current:
                 output += current.value + '; '
-                current = current._next
+                current = current.next
             return output
         except TypeError:
             return 'All values must be strings.'
@@ -84,7 +84,7 @@ class LinkedList(object):
         current = self.head
         while current:
             vals.append(current.value)
-            current = current._next
+            current = current.next
         if len(vals) - 1 >= k:
             return vals[len(vals) - 1 - k]
         else:
@@ -98,7 +98,7 @@ class Node(object):
 
     def __init__(self, val):
         self.value = val
-        self._next = None
+        self.next = None
 
 
 if __name__ == '__main__':

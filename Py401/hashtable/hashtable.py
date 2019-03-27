@@ -11,15 +11,8 @@ class Hashtable(object):
         """ Add (key, val) to hashtable """
         hashkey = self.hash(key)
         if not self.table[hashkey]:
-            self.table[hashkey] = (key, val)
-        elif not isinstance(self.table[hashkey], LinkedList):
-            # todo: handle existing key overwrite
-            oldval = self.table[hashkey]
             self.table[hashkey] = LinkedList()
-            self.table[hashkey].insert(oldval)
-            self.table[hashkey].insert((key, val))
-        else:
-            self.table[hashkey].insert((key, val))
+        self.table[hashkey].insert((key, val))
 
     def get(self, key):
         """ Get hashtable value corresponding to key """
@@ -31,8 +24,6 @@ class Hashtable(object):
                 if curr.value[0] == key:
                     return curr.value[1]
                 curr = curr._next
-        if index:
-            return index[1]
         return None
 
     def contains(self, key):
@@ -45,8 +36,6 @@ class Hashtable(object):
                 if curr.value[0] == key:
                     return True
                 curr = curr._next
-        if index and index[0] == key:
-            return True
         return False
 
     def hash(self, key):
