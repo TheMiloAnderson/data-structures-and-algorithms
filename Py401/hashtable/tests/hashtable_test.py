@@ -20,16 +20,16 @@ def test_add():
     h = Hashtable()
     h.add('abc', 'def')
     h.add('zyx', 'wvu')
-    assert h.table[h.hash('abc')][1] == 'def'
-    assert h.table[h.hash('zyx')][1] == 'wvu'
+    assert h.table[h.hash('abc')].head.value[1] == 'def'
+    assert h.table[h.hash('zyx')].head.value[1] == 'wvu'
 
 
 def test_collide():
     h = Hashtable()
     h.add('foo', 'bar')
     h.add('oof', 'rab')
-    assert isinstance(h.table[h.hash('foo')], LinkedList)
-    assert isinstance(h.table[h.hash('oof')], LinkedList)
+    assert h.table[h.hash('foo')].head.next.value[1] == 'bar'
+    assert h.table[h.hash('oof')].head.value[1] == 'rab'
 
 
 def test_get():
