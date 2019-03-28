@@ -1,5 +1,5 @@
 from linked_list.linked_list import LinkedList
-from linked_list.ll_merge.ll_merge import ll_zip, ll_reverse
+from linked_list.ll_merge import ll_zip, ll_reverse
 """
 Unit tests for the linked_list.LinkedList class
 """
@@ -28,7 +28,7 @@ def test_insert_two():
     mammals.insert('wolf')
 
     assert mammals.head.value == 'wolf'
-    assert mammals.head._next.value == 'whale'
+    assert mammals.head.next.value == 'whale'
 
 
 def test_insert_three():
@@ -38,8 +38,8 @@ def test_insert_three():
     mammals.insert('ape')
 
     assert mammals.head.value == 'ape'
-    assert mammals.head._next.value == 'wolf'
-    assert mammals.head._next._next.value == 'whale'
+    assert mammals.head.next.value == 'wolf'
+    assert mammals.head.next.next.value == 'whale'
 
 
 def test_append():

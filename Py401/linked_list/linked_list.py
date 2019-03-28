@@ -99,10 +99,3 @@ class Node(object):
     def __init__(self, val):
         self.value = val
         self.next = None
-
-
-if __name__ == '__main__':
-    mammals = LinkedList()
-    mammals.insert('bear')
-    mammals.insert_before('bear', 'tiger')
-    print(mammals.print())
