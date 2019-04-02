@@ -3,7 +3,8 @@ from merge_sort.mergesort import mergesort
 
 def test_random():
     arr = [3, 9, 11, 16, 14, 12, 15, 8, 10, 2, 5, 6, 13, 7, 4, 17, 1]
-    assert mergesort(arr) == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+    mergesort(arr)
+    assert arr == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
 
 
 def test_sorted():
