@@ -3,19 +3,23 @@ def mergesort(arr):
         mid = len(arr) // 2
         left = mergesort(arr[:mid])
         right = mergesort(arr[mid:])
-        output = []
-        i = j = 0
+        i = j = k = 0
         while i < len(left) and j < len(right):
             if left[i] < right[j]:
-                output.append(left[i])
+                arr[k] = left[i]
                 i += 1
             else:
-                output.append(right[j])
+                arr[k] = right[j]
                 j += 1
-        if i < len(left):
-            output += left[i:]
-        if j < len(right):
-            output += right[j:]
-        return output
+            k += 1
+        while i < len(left):
+            arr[k] = left[i]
+            i += 1
+            k += 1
+        while j < len(right):
+            arr[k] = right[j]
+            j += 1
+            k += 1
+        return arr
     else:
         return arr
