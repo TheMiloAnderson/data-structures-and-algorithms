@@ -19,13 +19,13 @@ def find_clusters(arr):
                     counter = 0
                     while counter < len(local_finds):
                         k, l = local_finds[counter]
-                        if (k+1) <= len(arr)-1 and arr[k+1][l] == 1 and (k+1,l) not in local_finds:
+                        if (k+1) <= len(arr)-1 and arr[k+1][l] == 1 and (k+1, l) not in local_finds:
                             local_finds.append((k+1, l))
-                        if (k-1) >= 0 and arr[k-1][l] == 1 and (k-1,l) not in local_finds:
+                        if (k-1) >= 0 and arr[k-1][l] == 1 and (k-1, l) not in local_finds:
                             local_finds.append((k-1, l))
-                        if (l+1) <= len(arr[k])-1 and arr[k][l+1] == 1 and (k,l+1) not in local_finds:
+                        if (l+1) <= len(arr[k])-1 and arr[k][l+1] == 1 and (k, l+1) not in local_finds:
                             local_finds.append((k, l+1))
-                        if (l-1) >= 0 and arr[k][l-1] == 1 and (k,l-1) not in local_finds:
+                        if (l-1) >= 0 and arr[k][l-1] == 1 and (k, l-1) not in local_finds:
                             local_finds.append((k, l-1))
                         counter += 1
                     total_finds.append(local_finds)
