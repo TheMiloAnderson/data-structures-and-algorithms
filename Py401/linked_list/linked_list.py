@@ -1,10 +1,33 @@
+from copy import deepcopy
+
+
 class LinkedList(object):
     """
     Implements a singly linked list, with methods to add nodes,
     search node values, and print all node values
     """
 
-    head = None
+    def __init__(self, iterable=None):
+        self.head = None
+        if iterable:
+            for val in iterable:
+                self.insert(val)
+
+    def __iter__(self):
+        curr = self.head
+        while curr:
+            yield curr.value
+            curr = curr.nxt
+
+    def __iadd__(self, val):
+        self.add(val)
+        return self
+
+    def __add__(self, iterable):
+        new_list = deepcopy(self)
+        for val in iterable:
+            new_list.add(val)
+        return new_list
 
     def insert(self, val):
         """ insert a new node into head of linked list """
@@ -14,18 +37,18 @@ class LinkedList(object):
         else:
             current = self.head
             self.head = node
-            self.head.next = current
+            self.head.nxt = current
 
-    def append(self, val):
+    def add(self, val):
         """ insert a new node at end of linked list """
         node = Node(val)
         if not self.head:
             self.head = node
         else:
             current = self.head
-            while current.next:
-                current = current.next
-            current.next = node
+            while current.nxt:
+                current = current.nxt
+            current.nxt = node
 
     def insert_before(self, val, new_val):
         """ insert a new value before given value """
@@ -35,23 +58,23 @@ class LinkedList(object):
             else:
                 node = Node(new_val)
                 current = self.head
-                while current.next.value != val:
-                    current = current.next
-                node.next = current.next
-                current.next = node
+                while current.nxt.value != val:
+                    current = current.nxt
+                node.nxt = current.nxt
+                current.nxt = node
 
     def insert_after(self, val, new_val):
         """ insert a new value after given value """
         if self.includes(val):
             if self.head.value == val:
-                self.append(new_val)
+                self.add(new_val)
             else:
                 node = Node(new_val)
                 current = self.head
                 while current.value != val:
-                    current = current.next
-                node.next = current.next
-                current.next = node
+                    current = current.nxt
+                node.nxt = current.nxt
+                current.nxt = node
 
     def includes(self, val):
         """ search for value in linked list """
@@ -60,7 +83,7 @@ class LinkedList(object):
             while current:
                 if current.value == val:
                     return True
-                current = current.next
+                current = current.nxt
             return False
         else:
             return False
@@ -72,7 +95,7 @@ class LinkedList(object):
         try:
             while current:
                 output += current.value + '; '
-                current = current.next
+                current = current.nxt
             return output
         except TypeError:
             return 'All values must be strings.'
@@ -84,7 +107,7 @@ class LinkedList(object):
         current = self.head
         while current:
             vals.append(current.value)
-            current = current.next
+            current = current.nxt
         if len(vals) - 1 >= k:
             return vals[len(vals) - 1 - k]
         else:
@@ -98,4 +121,4 @@ class Node(object):
 
     def __init__(self, val):
         self.value = val
-        self.next = None
+        self.nxt = None
