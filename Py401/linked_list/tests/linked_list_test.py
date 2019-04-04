@@ -28,7 +28,7 @@ def test_insert_two():
     mammals.insert('wolf')
 
     assert mammals.head.value == 'wolf'
-    assert mammals.head.next.value == 'whale'
+    assert mammals.head.nxt.value == 'whale'
 
 
 def test_insert_three():
@@ -38,33 +38,33 @@ def test_insert_three():
     mammals.insert('ape')
 
     assert mammals.head.value == 'ape'
-    assert mammals.head.next.value == 'wolf'
-    assert mammals.head.next.next.value == 'whale'
+    assert mammals.head.nxt.value == 'wolf'
+    assert mammals.head.nxt.nxt.value == 'whale'
 
 
-def test_append():
+def test_add():
     mammals = LinkedList()
     mammals.insert('mouse')
     mammals.insert('dog')
-    mammals.append('cat')
+    mammals.add('cat')
 
     assert mammals.print() == 'dog; mouse; cat; '
 
 
-def test_append_multiple():
+def test_add_multiple():
     mammals = LinkedList()
-    mammals.append('mouse')
-    mammals.append('dog')
-    mammals.append('cat')
+    mammals.add('mouse')
+    mammals.add('dog')
+    mammals.add('cat')
 
     assert mammals.print() == 'mouse; dog; cat; '
 
 
 def test_insert_before():
     mammals = LinkedList()
-    mammals.append('whale')
-    mammals.append('wolf')
-    mammals.append('ape')
+    mammals.add('whale')
+    mammals.add('wolf')
+    mammals.add('ape')
     mammals.insert_before('wolf', 'bat')
 
     assert mammals.print() == 'whale; bat; wolf; ape; '
@@ -72,9 +72,9 @@ def test_insert_before():
 
 def test_insert_after():
     mammals = LinkedList()
-    mammals.append('whale')
-    mammals.append('wolf')
-    mammals.append('ape')
+    mammals.add('whale')
+    mammals.add('wolf')
+    mammals.add('ape')
     mammals.insert_after('wolf', 'bat')
 
     assert mammals.print() == 'whale; wolf; bat; ape; '
@@ -145,11 +145,11 @@ def test_print_not_strings():
 
 def test_find_from_k():
     mammals = LinkedList()
-    mammals.append('orca')
-    mammals.append('beluga')
-    mammals.append('porpoise')
-    mammals.append('otter')
-    mammals.append('seal')
+    mammals.add('orca')
+    mammals.add('beluga')
+    mammals.add('porpoise')
+    mammals.add('otter')
+    mammals.add('seal')
 
     assert mammals.find_from_end(2) == 'porpoise'
     assert mammals.find_from_end(4) == 'orca'
@@ -158,16 +158,16 @@ def test_find_from_k():
 
 def test_ll_zip_equal():
     ll_1 = LinkedList()
-    ll_1.append('A')
-    ll_1.append('B')
-    ll_1.append('C')
-    ll_1.append('D')
+    ll_1.add('A')
+    ll_1.add('B')
+    ll_1.add('C')
+    ll_1.add('D')
 
     ll_2 = LinkedList()
-    ll_2.append('1')
-    ll_2.append('2')
-    ll_2.append('3')
-    ll_2.append('4')
+    ll_2.add('1')
+    ll_2.add('2')
+    ll_2.add('3')
+    ll_2.add('4')
 
     head = ll_zip(ll_1, ll_2)
     assert head.value == 'A'
@@ -176,18 +176,18 @@ def test_ll_zip_equal():
 
 def test_ll_zip_shorter():
     ll_1 = LinkedList()
-    ll_1.append('A')
-    ll_1.append('B')
-    ll_1.append('C')
-    ll_1.append('D')
+    ll_1.add('A')
+    ll_1.add('B')
+    ll_1.add('C')
+    ll_1.add('D')
 
     ll_2 = LinkedList()
-    ll_2.append('1')
-    ll_2.append('2')
-    ll_2.append('3')
-    ll_2.append('4')
-    ll_2.append('5')
-    ll_2.append('6')
+    ll_2.add('1')
+    ll_2.add('2')
+    ll_2.add('3')
+    ll_2.add('4')
+    ll_2.add('5')
+    ll_2.add('6')
 
     head = ll_zip(ll_1, ll_2)
     assert head.value == 'A'
@@ -196,17 +196,17 @@ def test_ll_zip_shorter():
 
 def test_ll_zip_longer():
     ll_1 = LinkedList()
-    ll_1.append('A')
-    ll_1.append('B')
-    ll_1.append('C')
-    ll_1.append('D')
-    ll_1.append('E')
+    ll_1.add('A')
+    ll_1.add('B')
+    ll_1.add('C')
+    ll_1.add('D')
+    ll_1.add('E')
 
     ll_2 = LinkedList()
-    ll_2.append('1')
-    ll_2.append('2')
-    ll_2.append('3')
-    ll_2.append('4')
+    ll_2.add('1')
+    ll_2.add('2')
+    ll_2.add('3')
+    ll_2.add('4')
 
     head = ll_zip(ll_1, ll_2)
     assert head.value == 'A'
@@ -215,10 +215,10 @@ def test_ll_zip_longer():
 
 def test_ll_reverse():
     ll = LinkedList()
-    ll.append('A')
-    ll.append('B')
-    ll.append('C')
-    ll.append('D')
-    ll.append('E')
+    ll.add('A')
+    ll.add('B')
+    ll.add('C')
+    ll.add('D')
+    ll.add('E')
     ll_reverse(ll)
     assert ll.print() == 'E; D; C; B; A; '

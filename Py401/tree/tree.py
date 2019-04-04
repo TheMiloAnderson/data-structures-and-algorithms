@@ -1,8 +1,48 @@
+from stacks_and_queues.stacks_and_queues import Queue
+
 class BinaryTree(object):
     """ Implements a binary tree with traversal methods """
 
     def __init__(self):
         self.root = None
+
+    def traverse_inorder(self):
+        def _traverse(node):
+            if not node:
+                return
+            yield from _traverse(node.l_child)
+            yield node.value
+            yield from _traverse(node.r_child)
+        return _traverse(self.root)
+
+    def traverse_preorder(self):
+        def _traverse(node):
+            if not node:
+                return
+            yield node.value
+            yield from _traverse(node.l_child)
+            yield from _traverse(node.r_child)
+        return _traverse(self.root)
+
+    def traverse_postorder(self):
+        def _traverse(node):
+            if not node:
+                return
+            yield from _traverse(node.l_child)
+            yield from _traverse(node.r_child)
+            yield node.value
+        return _traverse(self.root)
+
+    def traverse_breadth_first(self):
+        q = Queue()
+        q.enqueue(self.root)
+        while q.peek():
+            curr = q.dequeue()
+            yield curr.value
+            if curr.l_child:
+                q.enqueue(curr.l_child)
+            if curr.r_child:
+                q.enqueue(curr.r_child)
 
     def inorder(self, node):
         """ Return binary tree values in left/node/right order """

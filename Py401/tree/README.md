@@ -3,6 +3,9 @@
 ## Challenge
 Create a binary search tree
 
+**April 3, 2019:**
+- [x] Add (and pass) tests for Binary Tree Traversals
+
 ## API Methods & Efficiency
 add(value)
 Adds a node to the binary search tree
