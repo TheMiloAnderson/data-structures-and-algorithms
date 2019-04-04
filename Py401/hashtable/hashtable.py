@@ -23,7 +23,7 @@ class Hashtable(object):
             while curr:
                 if curr.value[0] == key:
                     return curr.value[1]
-                curr = curr.next
+                curr = curr.nxt
         return None
 
     def contains(self, key):
@@ -35,7 +35,7 @@ class Hashtable(object):
             while curr:
                 if curr.value[0] == key:
                     return True
-                curr = curr.next
+                curr = curr.nxt
         return False
 
     def hash(self, key):

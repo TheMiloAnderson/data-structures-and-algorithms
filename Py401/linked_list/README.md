@@ -13,5 +13,9 @@ The find_from_end method accepts an integer, and returns the value of the node i
 
 The ll_zip function in ll_merge/ll_merge.py accepts two linked lists as arguments, and combines them into one with alternating nodes. The time/space is O(N) and O(1), respectively.
 
+**April 3, 2019:**
+- [x] Using Test Driven Development add Iterable features to LinkedList and BinaryTree/BinarySearchTree implementations
+- [x] Pass all tests for LinkedList
+
 ## Solution
 ![linked list whiteboard](assets/linked_list.jpg)
