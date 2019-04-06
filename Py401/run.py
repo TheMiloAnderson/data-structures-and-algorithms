@@ -36,15 +36,11 @@ def setup_towers():
     discs = [Disc(i) for i in range(6, 0, -1)]
     for i in discs:
         a.push(i)
-    towers = [a, b, c]
-    go = True
-    while go:
-        for tower in towers:
-            if c.all_vals() != [6, 5, 4, 3, 2, 1]:
-                yield tower
-            else:
-                go = False
-                print('Congratulations, you won!')
+    curr = a
+    while c.all_vals() != [6, 5, 4, 3, 2, 1]:
+        yield curr
+        curr = curr.nxt
+    print('Congratulations, you won!')
 
 
 for tower in setup_towers():
