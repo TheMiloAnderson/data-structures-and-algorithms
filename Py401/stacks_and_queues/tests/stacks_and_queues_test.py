@@ -10,7 +10,7 @@ def print_all(ll):
         curr = ll.front
     while curr:
         output += str(curr.value) + '; '
-        curr = curr.next
+        curr = curr.nxt
     return output
 
 

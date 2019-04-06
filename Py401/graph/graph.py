@@ -1,6 +1,3 @@
-from linked_list.linked_list import LinkedList
-
-
 class Graph(object):
     """ Implements a graph """
 

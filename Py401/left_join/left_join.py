@@ -5,7 +5,7 @@ def left_join_hashmaps(ht_left, ht_right):
             node = ht_left.table[i].head
             while node:
                 output.append([node.value[0], node.value[1]])
-                node = node.next
+                node = node.nxt
     for val in output:
         if ht_right.contains(val[0]):
             val.append(ht_right.get(val[0]))

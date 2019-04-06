@@ -18,12 +18,12 @@ class AnimalShelter(object):
             prev = None
             while curr.value.species != pref:
                 prev = curr
-                curr = curr.next
+                curr = curr.nxt
             if prev:
-                prev.next = curr.next
+                prev.nxt = curr.nxt
             else:
-                self._queue.front = curr.next
-            curr.next = None
+                self._queue.front = curr.nxt
+            curr.nxt = None
             return curr.value
         return None
 
