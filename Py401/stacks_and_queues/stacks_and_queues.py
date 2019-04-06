@@ -16,13 +16,13 @@ class Stack(object):
         else:
             curr = self.top
             self.top = node
-            self.top.next = curr
+            self.top.nxt = curr
 
     def pop(self):
         if self.peek():
             curr = self.top
-            self.top = curr.next
-            curr.next = None
+            self.top = curr.nxt
+            curr.nxt = None
             return curr.value
         else:
             return None
@@ -45,7 +45,7 @@ class Queue(object):
             self.rear = node
             self.front = node
         else:
-            self.rear.next = node
+            self.rear.nxt = node
             self.rear = node
 
     def dequeue(self):
@@ -55,8 +55,8 @@ class Queue(object):
                 self.front = None
                 self.rear = None
             else:
-                self.front = curr.next
-            curr.next = None
+                self.front = curr.nxt
+            curr.nxt = None
             return curr.value
         else:
             return None
@@ -65,4 +65,4 @@ class Queue(object):
 class Node(object):
     def __init__(self, val):
         self.value = val
-        self.next = None
+        self.nxt = None
