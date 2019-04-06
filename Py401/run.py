@@ -26,25 +26,27 @@ class Disc(object):
         self.backwards = None
 
 
-def setup_towers():
+def setup_towers(n):
     a = Tower('A')
     b = Tower('B')
     c = Tower('C')
     a.nxt = b
     b.nxt = c
     c.nxt = a
-    discs = [Disc(i) for i in range(6, 0, -1)]
+    discs = [Disc(i) for i in range(n, 0, -1)]
     for i in discs:
         a.push(i)
     curr = a
-    while c.all_vals() != [6, 5, 4, 3, 2, 1]:
+    count = 0
+    while c.all_vals() != [i for i in range(n, 0, -1)]:
         yield curr
         curr = curr.nxt
-    print('Congratulations, you won!')
+        count += 1
+    print(f'Congratulations, you won in {count} moves!')
 
 
-for tower in setup_towers():
-    input('----- move -----')
+for tower in setup_towers(16):
+    # input('----- move -----')
     print(tower, tower.nxt, tower.nxt.nxt, sep='\n')
     for nxt in [tower.nxt, tower.nxt.nxt]:
         disc = tower.peek()
