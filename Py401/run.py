@@ -1,38 +1,70 @@
-arr = [
-    [1, 1, 1, 0, 0, 0, 0],
-    [1, 1, 0, 0, 0, 0, 1],
-    [0, 1, 0, 0, 1, 0, 1],
-    [0, 1, 1, 1, 0, 0, 0],
-    [0, 0, 0, 1, 1, 0, 1],
-    [0, 0, 0, 1, 1, 0, 1]
-]
+from stacks_and_queues.stacks_and_queues import Stack
 
 
-def find_clusters(arr):
-    total_finds = []
-    for i in range(0, len(arr)):
-        for j in range(0, len(arr[i])):
-            if arr[i][j] == 1:
-                if not any((i, j) in sublist for sublist in total_finds):
-                    local_finds = []
-                    local_finds.append((i, j))
-                    counter = 0
-                    while counter < len(local_finds):
-                        k, l = local_finds[counter]
-                        if (k+1) <= len(arr)-1 and arr[k+1][l] == 1 and (k+1, l) not in local_finds:
-                            local_finds.append((k+1, l))
-                        if (k-1) >= 0 and arr[k-1][l] == 1 and (k-1, l) not in local_finds:
-                            local_finds.append((k-1, l))
-                        if (l+1) <= len(arr[k])-1 and arr[k][l+1] == 1 and (k, l+1) not in local_finds:
-                            local_finds.append((k, l+1))
-                        if (l-1) >= 0 and arr[k][l-1] == 1 and (k, l-1) not in local_finds:
-                            local_finds.append((k, l-1))
-                        counter += 1
-                    total_finds.append(local_finds)
-    output = []
-    for group in total_finds:
-        output.append(len(group))
-    return output
+class Tower(Stack):
+
+    def __init__(self, id):
+        self.id = id
+        self.nxt = None
+
+    def all_vals(self):
+        output = []
+        curr = self.top
+        while curr:
+            output.insert(0, curr.value.num)
+            curr = curr.nxt
+        return output
+
+    def __str__(self):
+        return str(self.id) + ': ' + str(self.all_vals())
 
 
-print(find_clusters(arr))
+class Disc(object):
+
+    def __init__(self, num):
+        self.num = num
+        self.backwards = None
+
+
+def setup_towers():
+    a = Tower('A')
+    b = Tower('B')
+    c = Tower('C')
+    a.nxt = b
+    b.nxt = c
+    c.nxt = a
+    discs = [Disc(i) for i in range(6, 0, -1)]
+    for i in discs:
+        a.push(i)
+    towers = [a, b, c]
+    go = True
+    while go:
+        for tower in towers:
+            if c.all_vals() != [6, 5, 4, 3, 2, 1]:
+                yield tower
+            else:
+                go = False
+                print('Congratulations, you won!')
+
+
+for tower in setup_towers():
+    input('----- move -----')
+    print(tower, tower.nxt, tower.nxt.nxt, sep='\n')
+    for nxt in [tower.nxt, tower.nxt.nxt]:
+        disc = tower.peek()
+        # skip if no disc to move
+        if disc:
+            nxt_disc = nxt.peek()
+            # don't go backwards
+            if disc.backwards != nxt:
+                # move into empty stacks
+                if not nxt_disc:
+                    print(f'move {disc.num} from {tower.id} to {nxt.id}')
+                    nxt.push(tower.pop())
+                    disc.backwards = tower
+                # only move odd to even, even to odd, and smaller to larger
+                elif disc.num % 2 != nxt_disc.num % 2 and disc.num < nxt_disc.num:
+                    print(f'move {disc.num} from {tower.id} to {nxt.id}')
+                    nxt.push(tower.pop())
+                    disc.backwards = tower
+    print(tower, tower.nxt, tower.nxt.nxt, sep='\n')

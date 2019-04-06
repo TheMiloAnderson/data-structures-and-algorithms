@@ -28,7 +28,7 @@ def test_collide():
     h = Hashtable()
     h.add('foo', 'bar')
     h.add('oof', 'rab')
-    assert h.table[h.hash('foo')].head.next.value[1] == 'bar'
+    assert h.table[h.hash('foo')].head.nxt.value[1] == 'bar'
     assert h.table[h.hash('oof')].head.value[1] == 'rab'
 
 
