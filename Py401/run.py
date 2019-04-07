@@ -42,16 +42,14 @@ def setup_towers(n):
     for i in discs:
         a.push(i)
     curr = a
-    count = 0
     while c.all_vals() != [i for i in range(n, 0, -1)]:
         yield curr
         curr = curr.nxt
-        count += 1
-    print(f'Congratulations, you won in {count} moves!')
 
 
+move_count = 0
 for tower in setup_towers(int(input('How many discs in the stack? '))):
-    input('----- move -----')
+    print('----- move -----')
     print(tower, tower.nxt, tower.nxt.nxt, sep='\n')
     for nxt in [tower.nxt, tower.nxt.nxt]:
         disc = tower.peek()
@@ -63,9 +61,12 @@ for tower in setup_towers(int(input('How many discs in the stack? '))):
                 print(f'move {disc.num} from {tower.id} to {nxt.id}')
                 nxt.push(tower.pop())
                 disc.backwards = tower
+                move_count += 1
             # only move odd to even, even to odd, and smaller to larger
             elif disc.num % 2 != nxt_disc.num % 2 and disc.num < nxt_disc.num:
                 print(f'move {disc.num} from {tower.id} to {nxt.id}')
                 nxt.push(tower.pop())
                 disc.backwards = tower
+                move_count += 1
     print(tower, tower.nxt, tower.nxt.nxt, sep='\n')
+print(f'Congratulations, you won in {move_count} moves!')
