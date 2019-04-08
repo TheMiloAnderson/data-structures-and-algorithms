@@ -44,11 +44,31 @@ class Graph(object):
         return vert.adjacencies
 
     def size(self):
-        """ Returns an integer count of the number of vertexes in the graph """
+        """ Returns an integer count of the number of vertexes in the graph
+        """
         return len(self._vertices)
     
     def breadth_first_traverse(self, start_vert):
+        """ Returns a list of graph vertex values in breadth-first order
+
+        :param start_vert: Vertex object
+        :returns: list of vertex values
+        """
         q = Queue()
+        output = []
+        q.enqueue(start_vert)
+        start_vert.visited = True
+        while q.peek():
+            vert = q.dequeue()
+            output.append(vert.value)
+            for adj in vert.adjacencies:
+                if not adj[0].visited:
+                    q.enqueue(adj[0])
+                    adj[0].visited = True
+        # reset .visited attributes so we can traverse again
+        for v in self._vertices:
+            v.visited = False
+        return output
 
     def __repr__(self):
         return str(self.__class__) + str(self.__dict__)
@@ -63,6 +83,7 @@ class Vertex(object):
     def __init__(self, val):
         self.value = val
         self.adjacencies = []
+        self.visited = False
 
     def __repr__(self):
         return str(self.__class__) + str(self.__dict__)

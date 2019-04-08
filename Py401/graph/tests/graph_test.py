@@ -109,14 +109,14 @@ def test_breadth_first_traverse():
     g.add_edge(nab, mon)
     g.add_edge(nar, met)
     g.add_edge(nar, nab)
-    places = g.breadth_first_traverse
+    places = g.breadth_first_traverse(pan)
     assert places == [
-        Pandora,
-        Arendelle,
-        Metroville,
-        Monstroplolis,
-        Narnia,
-        Naboo
+        'Pandora',
+        'Arendelle',
+        'Metroville',
+        'Monstropolis',
+        'Naboo',
+        'Narnia'
     ]
 
 
@@ -133,10 +133,10 @@ def test_breadth_first_traverse_with_islands():
     g.add_edge(are, mon)
     g.add_edge(met, mon)
     g.add_edge(nar, nab)
-    places = g.breadth_first_traverse
+    places = g.breadth_first_traverse(pan)
     assert places == [
-        Pandora,
-        Arendelle,
-        Metroville,
-        Monstroplolis
+        'Pandora',
+        'Arendelle',
+        'Metroville',
+        'Monstropolis'
     ]
