@@ -69,6 +69,17 @@ class Graph(object):
         for v in self._vertices:
             v.visited = False
         return output
+    
+    def does_path_exist(self, vert1, vert2):
+        """ Returns boolean indicating whether a path connects two vertices
+
+        :param vert1: Vertex object
+        :param vert2: Vertex object
+        :returns: boolean
+        """
+        if vert1.value in self.breadth_first_traverse(vert2):
+            return True
+        return False
 
     def __repr__(self):
         return str(self.__class__) + str(self.__dict__)

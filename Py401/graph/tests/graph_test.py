@@ -180,3 +180,24 @@ def test_breadth_first_traverse_different_origins():
         'D',
         'F'
     ]
+
+
+def test_path_exists():
+    g = Graph()
+    a = g.add_vertex('A')
+    b = g.add_vertex('B')
+    c = g.add_vertex('C')
+    d = g.add_vertex('D')
+    e = g.add_vertex('E')
+    f = g.add_vertex('F')
+    g.add_edge(a, b)
+    g.add_edge(b, c)
+    g.add_edge(c, a)
+    g.add_edge(d, e)
+    g.add_edge(e, f)
+    g.add_edge(f, d)
+    assert g.does_path_exist(a, b)
+    assert g.does_path_exist(a, c)
+    assert g.does_path_exist(d, e)
+    assert not g.does_path_exist(a, e)
+    assert not g.does_path_exist(f, c)
