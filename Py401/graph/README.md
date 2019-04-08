@@ -4,7 +4,7 @@
 Implement your own Graph, represented internally as a adjacency list
 
 ## Approach & Efficiency
-Defined classes for Graph and Vertex. Graph has _vertices attribute, which holds a set of the graph's vertices. Vertex class has value & adjacencies attributes; adjacencies are represented as a tuple of the related vertex object and an edge weight integer.
+Defined classes for Graph and Vertex. Graph has ._vertices attribute, which holds a set of the graph's vertices. Vertex class has value & adjacencies attributes; adjacencies are represented as a tuple of the related vertex object and an edge weight integer.
 
 ## API
 **add_vertex(value)**
@@ -21,3 +21,9 @@ Accepts a vertex object as parameter; returns connected vertices as a list of (v
 
 **size()**
 Returns the total number of vertices in the graph
+
+**breadth_first_traverse(starting_vertex)**
+Returns a list of vertex values in breadth-first order, starting with the starting_vertex
+
+## Breadth-First Solution, 4/8/2019
+![whiteboard](assets/milo-cc36.jpg)

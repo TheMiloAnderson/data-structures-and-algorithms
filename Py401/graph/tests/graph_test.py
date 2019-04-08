@@ -91,3 +91,92 @@ def test_empty():
     g = Graph()
     assert g.get_vertices() == set()
     assert g.size() == 0
+
+
+def test_breadth_first_traverse():
+    g = Graph()
+    pan = g.add_vertex('Pandora')
+    are = g.add_vertex('Arendelle')
+    met = g.add_vertex('Metroville')
+    mon = g.add_vertex('Monstropolis')
+    nab = g.add_vertex('Naboo')
+    nar = g.add_vertex('Narnia')
+    g.add_edge(pan, are)
+    g.add_edge(are, met)
+    g.add_edge(are, mon)
+    g.add_edge(met, mon)
+    g.add_edge(nab, met)
+    g.add_edge(nab, mon)
+    g.add_edge(nar, met)
+    g.add_edge(nar, nab)
+    places = g.breadth_first_traverse(pan)
+    assert places == [
+        'Pandora',
+        'Arendelle',
+        'Metroville',
+        'Monstropolis',
+        'Naboo',
+        'Narnia'
+    ]
+
+
+def test_breadth_first_traverse_with_islands():
+    g = Graph()
+    pan = g.add_vertex('Pandora')
+    are = g.add_vertex('Arendelle')
+    met = g.add_vertex('Metroville')
+    mon = g.add_vertex('Monstropolis')
+    nab = g.add_vertex('Naboo')
+    nar = g.add_vertex('Narnia')
+    g.add_edge(pan, are)
+    g.add_edge(are, met)
+    g.add_edge(are, mon)
+    g.add_edge(met, mon)
+    g.add_edge(nar, nab)
+    places = g.breadth_first_traverse(pan)
+    assert places == [
+        'Pandora',
+        'Arendelle',
+        'Metroville',
+        'Monstropolis'
+    ]
+
+
+def test_breadth_first_traverse_different_origins():
+    g = Graph()
+    a = g.add_vertex('A')
+    b = g.add_vertex('B')
+    c = g.add_vertex('C')
+    d = g.add_vertex('D')
+    e = g.add_vertex('E')
+    f = g.add_vertex('F')
+    g.add_edge(a, b)
+    g.add_edge(b, c)
+    g.add_edge(b, d)
+    g.add_edge(c, e)
+    g.add_edge(d, f)
+    g.add_edge(e, f)
+    assert g.breadth_first_traverse(a) == [
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F'
+    ]
+    assert g.breadth_first_traverse(f) == [
+        'F',
+        'D',
+        'E',
+        'B',
+        'C',
+        'A'
+    ]
+    assert g.breadth_first_traverse(c) == [
+        'C',
+        'B',
+        'E',
+        'A',
+        'D',
+        'F'
+    ]
