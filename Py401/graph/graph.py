@@ -61,11 +61,11 @@ class Graph(object):
         while q.peek():
             vert = q.dequeue()
             output.append(vert.value)
-            for adj in vert.adjacencies:
-                if not adj[0].visited:
-                    q.enqueue(adj[0])
-                    adj[0].visited = True
-        # reset .visited attributes so we can traverse again
+            for v, w in vert.adjacencies:
+                if not v.visited:
+                    q.enqueue(v)
+                    v.visited = True
+        # reset .visited so we can traverse again
         for v in self._vertices:
             v.visited = False
         return output

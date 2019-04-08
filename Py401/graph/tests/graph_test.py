@@ -140,3 +140,43 @@ def test_breadth_first_traverse_with_islands():
         'Metroville',
         'Monstropolis'
     ]
+
+
+def test_breadth_first_traverse_different_origins():
+    g = Graph()
+    a = g.add_vertex('A')
+    b = g.add_vertex('B')
+    c = g.add_vertex('C')
+    d = g.add_vertex('D')
+    e = g.add_vertex('E')
+    f = g.add_vertex('F')
+    g.add_edge(a, b)
+    g.add_edge(b, c)
+    g.add_edge(b, d)
+    g.add_edge(c, e)
+    g.add_edge(d, f)
+    g.add_edge(e, f)
+    assert g.breadth_first_traverse(a) == [
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F'
+    ]
+    assert g.breadth_first_traverse(f) == [
+        'F',
+        'D',
+        'E',
+        'B',
+        'C',
+        'A'
+    ]
+    assert g.breadth_first_traverse(c) == [
+        'C',
+        'B',
+        'E',
+        'A',
+        'D',
+        'F'
+    ]
