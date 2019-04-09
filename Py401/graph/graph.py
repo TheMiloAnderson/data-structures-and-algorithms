@@ -97,7 +97,7 @@ class Vertex(object):
         self.visited = False
 
     def __repr__(self):
-        return str(self.__class__) + str(self.__dict__)
+        return str(self.__class__)# + str(self.__dict__)
 
     def __str__(self):
         return f'<Vertex object {self.value}>'
