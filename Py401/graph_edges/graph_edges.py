@@ -22,7 +22,6 @@ class GraphEdges(Graph):
         :returns: (boolean direct flight, integer cost)
         """
         cost = 0
-        # import pdb; pdb.set_trace()
         city_vertices = [self.get_vertex_by_value(city) for city in cities]
         if None not in city_vertices:
             departing = city_vertices[0]
