@@ -47,7 +47,7 @@ class Graph(object):
         """ Returns an integer count of the number of vertexes in the graph
         """
         return len(self._vertices)
-    
+
     def breadth_first_traverse(self, start_vert):
         """ Returns a list of graph vertex values in breadth-first order
 
@@ -69,7 +69,7 @@ class Graph(object):
         for v in self._vertices:
             v.visited = False
         return output
-    
+
     def does_path_exist(self, vert1, vert2):
         """ Returns boolean indicating whether a path connects two vertices
 

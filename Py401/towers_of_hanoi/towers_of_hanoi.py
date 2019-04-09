@@ -51,7 +51,7 @@ def setup_towers(n):
 
 move_count = 0
 for tower in setup_towers(int(input('How many discs in the stack? '))):
-    input('----- move -----')
+    print('----- move -----')
     for nxt in [tower.nxt, tower.nxt.nxt]:
         disc = tower.peek()
         # skip if no disc to move; don't reverse previous move
