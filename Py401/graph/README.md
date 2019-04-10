@@ -25,5 +25,11 @@ Returns the total number of vertices in the graph
 **breadth_first_traverse(starting_vertex)**
 Returns a list of vertex values in breadth-first order, starting with the starting_vertex
 
+**depth_first_traverse(starting_vertex)**
+Returns list of graph values in depth-first order
+
+## Depth-First Solution, 4/10/2019
+![whiteboard](assets/milo-cc38.jpg)
+
 ## Breadth-First Solution, 4/8/2019
 ![whiteboard](assets/milo-cc36.jpg)

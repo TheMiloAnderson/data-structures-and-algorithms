@@ -1,4 +1,4 @@
-from stacks_and_queues.stacks_and_queues import Stack, Queue
+from stacks_and_queues.stacks_and_queues import Queue
 
 
 class Graph(object):
@@ -65,7 +65,7 @@ class Graph(object):
                 if not v.visited:
                     q.enqueue(v)
                     v.visited = True
-        self.reset_visited()
+        self._reset_visited()
         return output
 
     def depth_first_traverse(self, start_vert):
@@ -84,10 +84,10 @@ class Graph(object):
                     _depth_first(v[0])
 
         _depth_first(start_vert)
-        self.reset_visited()
+        self._reset_visited()
         return output
 
-    def reset_visited(self):
+    def _reset_visited(self):
         """ Reset all .visited attributes after traversal
         """
         for v in self._vertices:
@@ -120,7 +120,7 @@ class Vertex(object):
         self.visited = False
 
     def __repr__(self):
-        return str(self.__class__)  # + str(self.__dict__)
+        return str(self.__class__) + str(self.value)
 
     def __str__(self):
         return f'<Vertex object {self.value}>'
