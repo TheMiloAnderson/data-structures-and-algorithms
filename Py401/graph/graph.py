@@ -70,6 +70,13 @@ class Graph(object):
             v.visited = False
         return output
 
+    def depth_first_traverse(self, start_vert):
+        """ Returns list of graph vertex values in depth-first order
+
+        :param start_vert: Vertex object
+        :returns: list of vertex values
+        """
+
     def does_path_exist(self, vert1, vert2):
         """ Returns boolean indicating whether a path connects two vertices
 
