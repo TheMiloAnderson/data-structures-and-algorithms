@@ -15,9 +15,9 @@ def test_depth_first_traverse():
     graph.add_edge(a, d)
     graph.add_edge(b, c)
     graph.add_edge(c, g)
-    graph.add_edge(d, f)
     graph.add_edge(d, e)
     graph.add_edge(d, h)
+    graph.add_edge(d, f)
     graph.add_edge(f, h)
     assert graph.depth_first_traverse(a) == [
         'A',
@@ -59,6 +59,16 @@ def test_depth_first_traverse_with_diff_root():
         'F',
         'H'
     ]
+    assert graph.depth_first_traverse(d) == [
+        'D',
+        'A',
+        'B',
+        'C',
+        'G',
+        'F',
+        'H',
+        'E'
+    ]
 
 
 def test_islands_depth_first_traverse():
@@ -73,9 +83,9 @@ def test_islands_depth_first_traverse():
     h = graph.add_vertex('H')
     graph.add_edge(a, d)
     graph.add_edge(c, g)
-    graph.add_edge(d, f)
     graph.add_edge(d, e)
     graph.add_edge(d, h)
+    graph.add_edge(d, f)
     graph.add_edge(f, h)
     assert graph.depth_first_traverse(a) == [
         'A',

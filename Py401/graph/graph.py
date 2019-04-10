@@ -1,4 +1,4 @@
-from stacks_and_queues.stacks_and_queues import Queue
+from stacks_and_queues.stacks_and_queues import Stack, Queue
 
 
 class Graph(object):
@@ -65,9 +65,7 @@ class Graph(object):
                 if not v.visited:
                     q.enqueue(v)
                     v.visited = True
-        # reset .visited so we can traverse again
-        for v in self._vertices:
-            v.visited = False
+        self.reset_visited()
         return output
 
     def depth_first_traverse(self, start_vert):
@@ -76,6 +74,24 @@ class Graph(object):
         :param start_vert: Vertex object
         :returns: list of vertex values
         """
+        output = []
+
+        def _depth_first(vertex):
+            if not vertex.visited:
+                output.append(vertex.value)
+                vertex.visited = True
+                for v in vertex.adjacencies:
+                    _depth_first(v[0])
+
+        _depth_first(start_vert)
+        self.reset_visited()
+        return output
+
+    def reset_visited(self):
+        """ Reset all .visited attributes after traversal
+        """
+        for v in self._vertices:
+            v.visited = False
 
     def does_path_exist(self, vert1, vert2):
         """ Returns boolean indicating whether a path connects two vertices
@@ -104,7 +120,7 @@ class Vertex(object):
         self.visited = False
 
     def __repr__(self):
-        return str(self.__class__)# + str(self.__dict__)
+        return str(self.__class__)  # + str(self.__dict__)
 
     def __str__(self):
         return f'<Vertex object {self.value}>'
